@@ -58,7 +58,8 @@ So that I can decide whether to hit or stand
 
 Acceptance Criteria:
 * Display the player's score each time they have to hit or stand.
-* Output `Players score: SCORE` on a separate line.
+* Output `Players score: SCORE` on a separate
+*************************************************************line.
 * Aces should count as one or eleven, whichever is closest to 21 without going over.
 
 #### Player hits

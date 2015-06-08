@@ -1,41 +1,13 @@
-#!/usr/bin/env ruby
-class PlayingCard
+require 'pry'
+require_relative 'game'
+require_relative 'hand'
+require_relative 'playercard'
+require_relative 'deck'
 
-  def initialize(rank, suit)
-    @rank = rank
-    @suit = suit
-  end
+game_deck = Deck.new
+player_hand = Hand.new("Player")
+house_hand = Hand.new("House")
 
-  def ace?
-    @rank == 'A'
-  end
+game = Game.new(game_deck, player_hand, house_hand)
 
-  def face_card?
-    ['J', 'Q', 'K'].include?(@rank)
-  end
-
-end
-
-SUITS = ['♠','♥','♦','♣']
-RANK = ['2', '3', '4', '5', '6', '7', '8', '9','10', 'J', 'Q', 'K', 'A']
-
-class Deck
-  def initialize
-    @collection = []
-    SUITS.each do |suit|
-      RANK.each do |rank|
-          @collection << PlayingCard.new(rank, suit)
-      end
-    end
-    @collection.shuffle!
-  end
-
-  def deal!
-    @collection.pop
-  end
-
-  def collection
-    @collection
-  end
-
-end
+game.play_game
