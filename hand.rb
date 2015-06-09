@@ -14,8 +14,6 @@ class Hand
 
   def blackjack?
     if hand_array.length == 2
-
-      #if the first card is ace >> and second is face card = blackjack
       if hand_array.first.ace?
         if hand_array.last.face_card? || hand_array.last.rank == "10"
           return true
@@ -49,7 +47,6 @@ class Hand
   end
 
   def ace_sort
-    binding.pry
     hand_array.each do |card|
       if card.ace?
         ace = hand_array.delete(card)
